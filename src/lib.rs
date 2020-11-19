@@ -26,7 +26,7 @@ where
 
 pub fn register_callback_safe<C>(mut c: C)
 where
-    C: Fn(String),
+    C: Fn(String) + Send + Sync,
 {
     let _callback_trampoline = get_callback_trampoline(&c);
 

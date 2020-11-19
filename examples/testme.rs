@@ -1,7 +1,7 @@
-use std::sync::mpsc::channel;
+use crossbeam_channel::unbounded;
 
 fn main() {
-    let (sender, receiver) = channel();
+    let (sender, receiver) = unbounded();
 
     let callback = |message: String| {
         // println!("{}", message);
